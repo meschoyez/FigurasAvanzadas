@@ -1,5 +1,11 @@
 package FigurasAvanzadas;
 
+/*
+    Un enumerado es una clase especial que se crea al
+    iniciar el programa (no debo instanciarlo).
+
+    Basicamente me sirve para usar etiquetas de clasificacion.
+*/
 public enum Forma {
     CIRCULO("Circulo"), RECTANGULO("Rectangulo"), TRIANGULO("Triangulo");
 

@@ -46,8 +46,6 @@ public class Posicion implements Comparable<Posicion> {
     @Override
     public int compareTo(Posicion otro) {
         // TODO - Implementar el metodo
-        // Eliminar la linea siguiente
-        throw new IllegalStateException();
         return 0;
     }
 }

@@ -15,5 +15,8 @@ public class App {
         g.listarFigurasOrdenadas();
 
         g.listarFigurasSegunDistanciaAlOrigen();
+
+        // Generar una figura geometrica al azar y mostrarla
+        // System.out.println(g.getAzar().getFiguraAleatoria());
     }
 }

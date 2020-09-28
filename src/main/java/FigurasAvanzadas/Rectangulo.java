@@ -87,8 +87,6 @@ public class Rectangulo extends FiguraGeometrica {
     @Override
     public int compareTo(FiguraGeometrica f) {
         // TODO - Implementar el metodo
-        // Eliminar la linea siguiente
-        throw new IllegalStateException();
         return 0;
     }
 

@@ -74,8 +74,8 @@ HerramientaDeAzar -> Forma
 
 Forma --> FiguraGeometrica
 
-Comparable --> FiguraGeometrica
-Comparable --> Posicion
+Comparable ..|> FiguraGeometrica
+Comparable ..|> Posicion
 
 GestorFiguras -> FiguraGeometrica
 

@@ -40,7 +40,7 @@ public class Posicion implements Comparable<Posicion> {
 
     /**
      * Compara la posicion con cualquier otra posicion
-     * devolviendo -1, 0 o 1 segun sea menor, igual o mayor la distancia al origen.0
+     * devolviendo -1, 0 o 1 segun sea menor, igual o mayor la distancia al origen.
      * @return El entero indicando la comparacion.
      */
     @Override

@@ -18,7 +18,9 @@ public class Rectangulo extends FiguraGeometrica {
      * Configurarlo con setId() de la superclase.
      */
     public Rectangulo(Integer base) {
-        // TODO - Implementar el metodo
+        setBase(base);
+        setAltura(base);
+        setId("Rectangulo" + getNroSerie());
     }
 
     /**
@@ -30,7 +32,9 @@ public class Rectangulo extends FiguraGeometrica {
      * Configurarlo con setId() de la superclase.
      */
     public Rectangulo(Integer base, Integer altura) {
-        // TODO - Implementar el metodo
+        setBase(base);
+        setAltura(altura);
+        setId("Rectangulo" + getNroSerie());
     }
 
     /**
@@ -38,8 +42,7 @@ public class Rectangulo extends FiguraGeometrica {
      * @return El perimetro.
      */
     public Double getPerimetro () {
-        // TODO - Implementar el metodo
-        return -1.0;
+        return 2.0 * base + 2.0 * altura;
     }
 
     /**
@@ -47,8 +50,7 @@ public class Rectangulo extends FiguraGeometrica {
      * @return La superficie.
      */
     public Double getSuperficie () {
-        // TODO - Implementar el metodo
-        return -1.0;
+        return 1.0 * base * altura;
     }
 
     public Integer getBase() {
@@ -61,7 +63,9 @@ public class Rectangulo extends FiguraGeometrica {
      * @param altura La base a configurar.
      */
     public void setBase(Integer base) {
-        // TODO - Implementar el metodo
+        if ((0 < base) && (base <= MAX_LADO)) {
+            this.base = base;
+        }
     }
 
     public Integer getAltura() {
@@ -74,7 +78,9 @@ public class Rectangulo extends FiguraGeometrica {
      * @param altura La altura a configurar.
      */
     public void setAltura(Integer altura) {
-        // TODO - Implementar el metodo
+        if ((0 < altura) && (altura <= MAX_LADO)) {
+            this.altura = altura;
+        }
     }
 
     /**
@@ -86,8 +92,11 @@ public class Rectangulo extends FiguraGeometrica {
      */
     @Override
     public int compareTo(FiguraGeometrica f) {
-        // TODO - Implementar el metodo
-        return 0;
+        int r = getSuperficie().compareTo(f.getSuperficie());
+        if (r == 0) {
+            r = (int)Math.signum(getId().compareTo(f.getId()));
+        }
+        return r;
     }
 
     /**
@@ -95,8 +104,8 @@ public class Rectangulo extends FiguraGeometrica {
      * @return El numero de serie a usar.
      */
     private Integer getNroSerie() {
-        // TODO - Implementar el metodo
-        return -1;
+        nroSerie += 1;
+        return nroSerie;
     }
 
     /**
@@ -108,8 +117,7 @@ public class Rectangulo extends FiguraGeometrica {
      */
     @Override
     public String toString() {
-        // TODO - Implementar el metodo
-        return "hola";
+        return super.toString() + " ++ Altura=" + altura + ", Base=" + base;
     }
 
 }

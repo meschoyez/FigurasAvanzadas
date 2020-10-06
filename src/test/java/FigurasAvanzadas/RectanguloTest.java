@@ -108,6 +108,9 @@ public class RectanguloTest {
     @Test
     public void testToStringLocal () {
         assertEquals("Altura=170, Base=170", r1.toString().split(" \\+\\+ ")[1]);
+        r1.setBase(210);
+        r1.setAltura(190);
+        assertEquals("Altura=190, Base=210", r1.toString().split(" \\+\\+ ")[1]);
         assertEquals("Altura=90, Base=90", r2.toString().split(" \\+\\+ ")[1]);
         assertEquals("Altura=90, Base=150", r3.toString().split(" \\+\\+ ")[1]);
         assertEquals("Altura=190, Base=210", r4.toString().split(" \\+\\+ ")[1]);

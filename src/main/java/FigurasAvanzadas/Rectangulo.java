@@ -1,5 +1,7 @@
 package FigurasAvanzadas;
 
+import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
+
 public class Rectangulo extends FiguraGeometrica {
     // La constante se usa para BASE y ALTURA
     private static final Integer MAX_LADO = 500;
@@ -94,9 +96,16 @@ public class Rectangulo extends FiguraGeometrica {
     public int compareTo(FiguraGeometrica f) {
         int r = getSuperficie().compareTo(f.getSuperficie());
         if (r == 0) {
-            r = (int)Math.signum(getId().compareTo(f.getId()));
+            r = (int)Math.signum( getId().compareTo(f.getId()) );
         }
         return r;
+    }
+    
+    // Solo valido para el ejemplo de Set y Map
+    @Override
+    public boolean equals (Object f) {
+        Rectangulo r = (Rectangulo)f;
+        return getSuperficie().equals(r.getSuperficie());
     }
 
     /**

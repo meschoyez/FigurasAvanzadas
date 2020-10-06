@@ -2,7 +2,7 @@ package FigurasAvanzadas;
 
 public class Triangulo extends FiguraGeometrica {
     // La constante se usa para BASE y ALTURA
-    private static final Integer MAX_ALTURA = 1000;
+    private static final Integer MAX_ALTURA = 500;
     // El numero de serie del primer objeto es 1
     // No se puede repetir el numero para dos triangulos
     private static Integer nroSerie = 0;
@@ -18,6 +18,8 @@ public class Triangulo extends FiguraGeometrica {
      * Configurarlo con setId() de la superclase.
      */
     public Triangulo (Integer base) {
+        this.base = base;
+        this.altura = base;
         // TODO - Implementar el metodo
     }
 
@@ -31,6 +33,8 @@ public class Triangulo extends FiguraGeometrica {
      */
     public Triangulo (Integer base, Integer altura) {
         // TODO - Implementar el metodo
+        this.base = base;
+        this.altura = altura;
     }
 
     /**

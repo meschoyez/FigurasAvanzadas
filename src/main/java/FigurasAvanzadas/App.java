@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.TreeSet;
 
-import org.w3c.dom.css.Rect;
 
 public class App {
     /**
@@ -17,19 +16,26 @@ public class App {
     public static void main(String[] args) throws Exception {
         GestorFiguras g = new GestorFiguras();
 
-        g.crearFigurasAleatoriamente(10);
+        g.crearFigurasAleatoriamente(5);
 
+        System.out.println("Lista con 5 figuras");
         g.listarFigurasColeccionadas();
 
+        System.out.println("Lista las figuras ordenadas");
         g.listarFigurasOrdenadas();
 
-        g.listarFigurasSegunDistanciaAlOrigen();
+
+        System.out.println(g.alMenosUnoMayorA(10000));
+        // System.out.println(g.ningunoMayorA(100000));
+        // g.listarFigurasOrdenadas();
+
+        // g.listarFigurasSegunDistanciaAlOrigen();
 
         // Generar una figura geometrica al azar y mostrarla
         // System.out.println(g.getAzar().getFiguraAleatoria());
 
         // ejemploDeConjuntos();
-        ejemploDeMapas();
+        // ejemploDeMapas();
     }
 
 

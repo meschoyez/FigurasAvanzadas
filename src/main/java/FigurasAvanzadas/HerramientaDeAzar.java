@@ -18,6 +18,14 @@ public class HerramientaDeAzar {
         dado.setSeed(seed);       
     }
 
+    public FiguraGeometrica rectanguloAleatorio () {
+        FiguraGeometrica f;
+        f = new Rectangulo(getEntero(10, 500));
+        f.getPosicion().setX(getEntero(0, 800));
+        f.getPosicion().setY(getEntero(0, 600));
+        return f;
+    }
+
     public FiguraGeometrica getFiguraAleatoria () {
         FiguraGeometrica f;
         Forma forma = Forma.values()[dado.nextInt(Forma.values().length)];

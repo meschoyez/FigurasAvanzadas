@@ -1,6 +1,7 @@
 package FigurasAvanzadas;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -20,7 +21,8 @@ public class GestorFiguras {
      * la coleccion de figuras geometricas.
      */
     public GestorFiguras () {
-        // TODO - Implementar el metodo
+        generador = new HerramientaDeAzar();
+        figuras = new ArrayList<>();
     }
 
     public List<FiguraGeometrica> getFiguras () {
@@ -44,7 +46,7 @@ public class GestorFiguras {
      * Se solicita la figura a la clase HerramientaDeAzar.
      */
     public void agregarFiguraAleatoria () {
-        // TODO - Implementar el metodo
+        agregarFigura(generador.getFiguraAleatoria());
     }
 
     /**
@@ -54,7 +56,10 @@ public class GestorFiguras {
      * @param cantidad La cantidad de figuras a crear.
      */
     public void crearFigurasAleatoriamente(Integer cantidad) {
-        // TODO - Implementar el metodo
+        for (Integer i = 0; i < cantidad ; i++) {
+            // agregarFiguraAleatoria();
+            agregarFigura(generador.rectanguloAleatorio());
+        }
     }
 
     /**
@@ -62,7 +67,24 @@ public class GestorFiguras {
      * geometricas coleccionadas usando toString().
      */
     public void listarFigurasColeccionadas() {
-        // TODO - Implementar el metodo
+        // Recorrido sobre todos los elementos
+
+        // 1) Con for-each (para cualquier Collection)
+        for (FiguraGeometrica f : figuras) {
+            System.out.println(f);
+        }
+
+        // 2) Con for comun (solo para ArrayList)
+        // for (Integer i = 0; i < figuras.size() ; i++) {
+        //     System.out.println(figuras.get(i));
+        // }
+
+        // 3) While con Iterator (cualquier Collection)
+        // Iterator<FiguraGeometrica> it = figuras.iterator();
+        // while (it.hasNext()) {
+        //     FiguraGeometrica f = it.next();
+        //     System.out.println(f);
+        // }
     }
 
     /**
@@ -71,7 +93,66 @@ public class GestorFiguras {
      * en su orden natural.
      */
     public void listarFigurasOrdenadas() {
-        // TODO - Implementar el metodo
+        TreeSet<FiguraGeometrica> fig = new TreeSet<>(figuras);
+        for (FiguraGeometrica f : fig) {
+            System.out.println(f);
+        }
+    }
+
+    /**
+     * Verifica que todos los elementos sean menores.
+     * Ninguno es mayor.
+     * @param superficie
+     * @return
+     */
+    public Boolean ningunoMayorA (Integer superficie) {
+        // Variable bandera indica si se uso -> funciona como lacrado
+        Boolean ninguno = true;
+        for (FiguraGeometrica f : figuras) {
+            if (f.getSuperficie() > superficie) {
+                ninguno = false;
+            }
+        }
+        return ninguno;
+    }
+
+    /**
+     * Verifica que todos cumplan la condicion.
+     * @param superficie
+     * @return
+     */
+    public Boolean todosMayorA (Integer superficie) {
+        Boolean todos = true;
+        for (FiguraGeometrica f : figuras) {
+            if (f.getSuperficie() < superficie) {
+                todos = false;
+            }
+        }
+        return todos;
+    }
+
+    /**
+     * Verifica que al menos uno cumpla la condicion.
+     * @param superficie
+     * @return
+     */
+    public Boolean alMenosUnoMayorA (Integer superficie) {
+        Boolean uno = false;
+        // Recorre toda la lista
+        // for (FiguraGeometrica f : figuras) {
+        //     if (f.getSuperficie() > superficie) {
+        //         uno = true;
+        //     }
+        // }
+        // Alternativa: Recorre hasta econtrar o llega al final
+        Iterator<FiguraGeometrica> it = figuras.iterator();
+        while ((it.hasNext()) && (!uno)) {
+            FiguraGeometrica fig = it.next();
+            if (fig.getSuperficie() > superficie) {
+                uno = true;
+            }
+        }
+        return uno;
     }
 
     /**

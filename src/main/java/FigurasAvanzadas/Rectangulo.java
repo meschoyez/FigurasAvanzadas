@@ -1,7 +1,5 @@
 package FigurasAvanzadas;
 
-import javax.xml.crypto.dsig.keyinfo.RetrievalMethod;
-
 public class Rectangulo extends FiguraGeometrica {
     // La constante se usa para BASE y ALTURA
     private static final Integer MAX_LADO = 500;

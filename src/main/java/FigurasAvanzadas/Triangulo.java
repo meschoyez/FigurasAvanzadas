@@ -18,9 +18,9 @@ public class Triangulo extends FiguraGeometrica {
      * Configurarlo con setId() de la superclase.
      */
     public Triangulo (Integer base) {
-        this.base = base;
-        this.altura = base;
-        // TODO - Implementar el metodo
+        setBase(base);
+        setAltura(base);
+        setId("Triangulo" + getNroSerie());
     }
 
     /**

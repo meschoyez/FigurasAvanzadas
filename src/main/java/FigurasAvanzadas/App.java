@@ -2,8 +2,6 @@ package FigurasAvanzadas;
 
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -24,6 +22,7 @@ public class App {
         // System.out.println("Lista las figuras ordenadas");
         // g.listarFigurasOrdenadas();
         System.out.println("Hay " + g.getFiguras().size() + " figuras");
+
         System.out.println(g.listarMayoresA(200.0).size() + " figuras son mayores");
 
         // System.out.println(g.alMenosUnoMayorA(10000));

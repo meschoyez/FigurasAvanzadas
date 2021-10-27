@@ -7,7 +7,7 @@ public class Circulo extends FiguraGeometrica {
     // El numero de serie del primer objeto es 1
     // No se puede repetir el numero para dos triangulos
     private static Integer nroSerie = 0;
-    private Integer radio;
+    private Double radio;
 
     /**
      * Constructor que recibe los valores de la base
@@ -18,7 +18,8 @@ public class Circulo extends FiguraGeometrica {
      * Configurarlo con setId() de la superclase.
      */
     public Circulo(Integer diametro) {
-        this.radio = diametro;
+        setRadio(diametro / 2.0);
+        setId("Rectangulo" + getNroSerie());
     }
 
     /**
@@ -37,15 +38,15 @@ public class Circulo extends FiguraGeometrica {
         return pi * radio * radio;
     }
 
-    public Integer getRadio() {
+    public Double getRadio() {
         return radio;
     }
 
-    public Integer getDiametro() {
-        return radio * 2;
+    public Double getDiametro() {
+        return radio * 2.0;
     }
 
-    public void setRadio(Integer radio) {
+    public void setRadio(Double radio) {
         if ((0 < radio) && (radio < MAX_RADIO)) {
             this.radio = radio;
         }

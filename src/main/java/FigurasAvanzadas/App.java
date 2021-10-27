@@ -16,16 +16,17 @@ public class App {
     public static void main(String[] args) throws Exception {
         GestorFiguras g = new GestorFiguras();
 
-        g.crearFigurasAleatoriamente(5);
+        g.crearFigurasAleatoriamente(5000);
 
-        System.out.println("Lista con 5 figuras");
-        g.listarFigurasColeccionadas();
+        // System.out.println("Lista con 5 figuras");
+        // g.listarFigurasColeccionadas();
 
-        System.out.println("Lista las figuras ordenadas");
-        g.listarFigurasOrdenadas();
+        // System.out.println("Lista las figuras ordenadas");
+        // g.listarFigurasOrdenadas();
+        System.out.println("Hay " + g.getFiguras().size() + " figuras");
+        System.out.println(g.listarMayoresA(200.0).size() + " figuras son mayores");
 
-
-        System.out.println(g.alMenosUnoMayorA(10000));
+        // System.out.println(g.alMenosUnoMayorA(10000));
         // System.out.println(g.ningunoMayorA(100000));
         // g.listarFigurasOrdenadas();
 

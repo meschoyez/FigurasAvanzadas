@@ -168,4 +168,24 @@ public class GestorFiguras {
         // TODO - Implementar el metodo
     }
 
+
+    /**
+     * Verifica que todos los elementos sean menores.
+     * Ninguno es mayor.
+     * @param superficie
+     * @return
+     */
+    public List<FiguraGeometrica> listarMayoresA (Double superficie) {
+        // Variable bandera indica si se uso -> funciona como lacrado
+        List<FiguraGeometrica> lista = new ArrayList<>();
+        for (FiguraGeometrica f : figuras) {
+            if (f.getSuperficie() > superficie) {
+                lista.add(f);
+            }
+        }
+        return lista;
+    }
+
+
+
 }

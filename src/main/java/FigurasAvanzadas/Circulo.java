@@ -3,7 +3,7 @@ package FigurasAvanzadas;
 public class Circulo extends FiguraGeometrica {
     private static final Double pi = Math.PI;
     // La constante se usa para BASE y ALTURA
-    private static final Integer MAX_RADIO = 500;
+    private static final Double MAX_RADIO = 500.0;
     // El numero de serie del primer objeto es 1
     // No se puede repetir el numero para dos triangulos
     private static Integer nroSerie = 0;
@@ -19,7 +19,7 @@ public class Circulo extends FiguraGeometrica {
      */
     public Circulo(Integer diametro) {
         setRadio(diametro / 2.0);
-        setId("Rectangulo" + getNroSerie());
+        setId("Circulo" + getNroSerie());
     }
 
     /**
@@ -47,6 +47,7 @@ public class Circulo extends FiguraGeometrica {
     }
 
     public void setRadio(Double radio) {
+        this.radio = MAX_RADIO;
         if ((0 < radio) && (radio < MAX_RADIO)) {
             this.radio = radio;
         }
@@ -61,7 +62,18 @@ public class Circulo extends FiguraGeometrica {
      */
     @Override
     public int compareTo(FiguraGeometrica f) {
-        return 0;
+        int r = getSuperficie().compareTo(f.getSuperficie());
+        if (r == 0) {
+            r = (int)Math.signum( getId().compareTo(f.getId()) );
+        }
+        return r;
+    }
+
+    // Solo valido para el ejemplo de Set y Map
+    @Override
+    public boolean equals (Object f) {
+        Circulo r = (Circulo)f;
+        return getSuperficie().equals(r.getSuperficie());
     }
 
     /**
@@ -69,6 +81,7 @@ public class Circulo extends FiguraGeometrica {
      * @return El numero de serie a usar.
      */
     private Integer getNroSerie() {
+        nroSerie += 1;
         return nroSerie;
     }
 
@@ -81,7 +94,7 @@ public class Circulo extends FiguraGeometrica {
      */
     @Override
     public String toString() {
-        return "Circulo\n ++ Radio=" + radio;
+        return "Figura Circulo\n ++ Radio=" + radio;
     }
 
 }

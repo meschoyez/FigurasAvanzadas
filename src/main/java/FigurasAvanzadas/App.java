@@ -14,7 +14,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         GestorFiguras g = new GestorFiguras();
 
-        g.crearFigurasAleatoriamente(5000);
+        // g.crearFigurasAleatoriamente(50);
+        g.crearFigurasAleatoriamente(5000000);
 
         // System.out.println("Lista con 5 figuras");
         // g.listarFigurasColeccionadas();
@@ -23,7 +24,10 @@ public class App {
         // g.listarFigurasOrdenadas();
         System.out.println("Hay " + g.getFiguras().size() + " figuras");
 
-        System.out.println(g.listarMayoresA(200.0).size() + " figuras son mayores");
+        // System.out.println(g.getFiguras().get(0).getSuperficie());
+        System.out.println(g.listarRectangulos().size() + " figuras son rectangulos");
+
+        System.out.println(g.listarMayoresA(50000.0).size() + " figuras son mayores");
 
         // System.out.println(g.alMenosUnoMayorA(10000));
         // System.out.println(g.ningunoMayorA(100000));

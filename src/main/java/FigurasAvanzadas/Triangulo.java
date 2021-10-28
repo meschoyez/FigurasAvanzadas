@@ -32,9 +32,9 @@ public class Triangulo extends FiguraGeometrica {
      * Configurarlo con setId() de la superclase.
      */
     public Triangulo (Integer base, Integer altura) {
-        // TODO - Implementar el metodo
-        this.base = base;
-        this.altura = altura;
+        setBase(base);
+        setAltura(altura);
+        setId("Triangulo" + getNroSerie());
     }
 
     /**
@@ -51,8 +51,7 @@ public class Triangulo extends FiguraGeometrica {
      * @return La superficie.
      */
     public Double getSuperficie () {
-        // TODO - Implementar el metodo
-        return -1.0;
+        return base * altura / 2.0;
     }
 
     public Integer getBase() {
@@ -65,7 +64,10 @@ public class Triangulo extends FiguraGeometrica {
      * @param altura La base a configurar.
      */
     public void setBase(Integer base) {
-        // TODO - Implementar el metodo
+        this.base = MAX_ALTURA;
+        if (0 < base) {
+            this.base = base;
+        }
     }
 
     public Integer getAltura() {
@@ -78,7 +80,10 @@ public class Triangulo extends FiguraGeometrica {
      * @param altura La altura a configurar.
      */
     public void setAltura(Integer altura) {
-        // TODO - Implementar el metodo
+        this.altura = MAX_ALTURA;
+        if ((0 < altura) && (altura <= MAX_ALTURA)) {
+            this.altura = altura;
+        }
     }
 
     /**
@@ -90,8 +95,18 @@ public class Triangulo extends FiguraGeometrica {
      */
     @Override
     public int compareTo(FiguraGeometrica f) {
-        // TODO - Implementar el metodo
-        return 0;
+        int r = getSuperficie().compareTo(f.getSuperficie());
+        if (r == 0) {
+            r = (int)Math.signum( getId().compareTo(f.getId()) );
+        }
+        return r;
+    }
+
+    // Solo valido para el ejemplo de Set y Map
+    @Override
+    public boolean equals (Object f) {
+        Triangulo t = (Triangulo)f;
+        return getSuperficie().equals(t.getSuperficie());
     }
 
     /**
@@ -99,8 +114,8 @@ public class Triangulo extends FiguraGeometrica {
      * @return El numero de serie a usar.
      */
     private Integer getNroSerie() {
-        // TODO - Implementar el metodo
-        return -1;
+        nroSerie += 1;
+        return nroSerie;
     }
 
     /**
@@ -112,7 +127,7 @@ public class Triangulo extends FiguraGeometrica {
      */
     @Override
     public String toString() {
-        return "hola";
+        return super.toString() + " ++ Altura=" + altura + ", Base=" + base;
     }
 
 }

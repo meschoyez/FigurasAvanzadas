@@ -54,8 +54,10 @@ public class GestorFiguras {
      */
     public void crearFigurasAleatoriamente(Integer cantidad) {
         for (Integer i = 0; i < cantidad ; i++) {
-            // agregarFiguraAleatoria();
-            agregarFigura(generador.rectanguloAleatorio());
+            try {
+                agregarFiguraAleatoria();
+            } catch (IllegalStateException e) {
+            }
         }
     }
 
@@ -167,8 +169,8 @@ public class GestorFiguras {
 
 
     /**
-     * Verifica que todos los elementos sean menores.
-     * Ninguno es mayor.
+     * Genera una lista de figuras geometricas con superficie mayor 
+     * a la indicada.
      * @param superficie
      * @return
      */
@@ -183,6 +185,19 @@ public class GestorFiguras {
         return lista;
     }
 
-
+    /**
+     * Genera una lista de rectangulos.
+     * @return
+     */
+    public List<FiguraGeometrica> listarRectangulos () {
+        List<FiguraGeometrica> lista = new ArrayList<>();
+        for (FiguraGeometrica f : figuras) {
+            try {
+                lista.add((Rectangulo)f);
+            } catch (ClassCastException e) {
+            }
+        }
+        return lista;
+    }
 
 }

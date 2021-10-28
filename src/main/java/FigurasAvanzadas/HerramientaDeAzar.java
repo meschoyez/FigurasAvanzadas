@@ -30,14 +30,16 @@ public class HerramientaDeAzar {
         FiguraGeometrica f;
         Forma forma = Forma.values()[dado.nextInt(Forma.values().length)];
         try {
-            Constructor<?> constructor = Class.forName(forma.toString()).getConstructor(Integer.class);
+            Class<?> c = Class.forName("FigurasAvanzadas." + forma.toString());
+            Constructor<?> constructor = c.getConstructor(Integer.class);
+            // Constructor<?> constructor = Class.forName(forma.toString()).getConstructor(Integer.class);
             f = (FiguraGeometrica)constructor.newInstance(getEntero(10, 500));
             f.getPosicion().setX(getEntero(0, 800));
             f.getPosicion().setY(getEntero(0, 600));
         }
         catch (Exception e) {
             System.out.println(e);
-            f = null;
+            throw new IllegalStateException(e.getMessage());
         }
         return f;
     }

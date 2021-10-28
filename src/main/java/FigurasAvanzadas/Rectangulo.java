@@ -63,6 +63,7 @@ public class Rectangulo extends FiguraGeometrica {
      * @param altura La base a configurar.
      */
     public void setBase(Integer base) {
+        this.base = MAX_LADO;
         if ((0 < base) && (base <= MAX_LADO)) {
             this.base = base;
         }
@@ -78,6 +79,7 @@ public class Rectangulo extends FiguraGeometrica {
      * @param altura La altura a configurar.
      */
     public void setAltura(Integer altura) {
+        this.altura = MAX_LADO;
         if ((0 < altura) && (altura <= MAX_LADO)) {
             this.altura = altura;
         }
